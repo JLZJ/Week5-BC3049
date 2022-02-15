@@ -25,7 +25,7 @@ def index():
     sugar = request.form.get("sugar")
     milk = request.form.get("milk")
     model = joblib.load("CTaste")
-    pred = model.predict([[sugar, milk]])
+    pred = model.predict([[float(sugar), float(milk)]])
     if pred==0:
         s = "Predicted taste is bad"
     else:
